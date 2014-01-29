@@ -23,11 +23,14 @@ class ImportDataProcessor
     revenue_counter = 0
 
     CSV.foreach import.data.current_path, headers: true, col_sep: "\t" do |row|
+      purchaser_name = row["purchaser name"]
       item_price_in_cents = extract_price_in_cents(row["item price"])
       purchase_count = row["purchase count"].to_i
 
+      purchaser = Purchaser.find_or_create_by! name: purchaser_name
+
       import.line_items.build \
-        purchaser_name: row["purchaser name"],
+        purchaser: purchaser,
         item_description: row["item description"],
         item_price_in_cents: item_price_in_cents,
         purchase_count: purchase_count,

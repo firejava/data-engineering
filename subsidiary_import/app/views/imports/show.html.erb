@@ -8,7 +8,7 @@
   <table class="data">
     <thead>
       <tr>
-        <th>Purchaser Name</th>
+        <th>Purchaser</th>
         <th>Item Description</th>
         <th class="numeric">Item Price</th>
         <th class="numeric">Purchase Count</th>
@@ -19,7 +19,7 @@
     <tbody>
       <% @import.line_items.each do |line_item| %>
         <tr>
-          <td><%= line_item.purchaser_name %></td>
+          <td><%= link_to line_item.purchaser_name, line_item.purchaser %></td>
           <td><%= line_item.item_description %></td>
           <td class="numeric"><%= number_to_currency line_item.item_price %></td>
           <td class="numeric"><%= line_item.purchase_count %></td>

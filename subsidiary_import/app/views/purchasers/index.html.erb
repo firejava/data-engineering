@@ -1,0 +1,20 @@
+<h1>Purchasers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchasers.each do |purchaser| %>
+      <tr>
+        <td><%= purchaser.name %></td>
+        <td><%= link_to 'Show', purchaser %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
