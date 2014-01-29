@@ -1,5 +1,6 @@
 <h1>Import</h1>
 
+<p>Gross Revenue: <%= number_to_currency @import.gross_revenue %></p>
 <p>Data: <%= link_to @import.data.file.filename, @import.data.url %></p>
 <p>Created <%= time_ago_in_words @import.created_at %> ago</p>
 

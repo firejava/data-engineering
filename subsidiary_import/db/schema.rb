@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129030854) do
+ActiveRecord::Schema.define(version: 20140129041940) do
 
   create_table "import_line_items", force: true do |t|
     t.integer  "import_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140129030854) do
     t.string   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gross_revenue_in_cents"
   end
 
 end

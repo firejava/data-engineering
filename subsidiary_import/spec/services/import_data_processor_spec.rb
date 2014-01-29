@@ -19,6 +19,10 @@ describe ImportDataProcessor do
       expect(import.line_items).to be_empty
     end
 
+    it "updates the import's gross revenue" do
+      expect(import.gross_revenue_in_cents).to eql(0)
+    end
+
   end
 
   context "with the single record fixture" do
@@ -27,6 +31,10 @@ describe ImportDataProcessor do
 
     it "generates one line item" do
       expect(import.line_items.count).to eql(1)
+    end
+
+    it "updates the import's gross revenue" do
+      expect(import.gross_revenue_in_cents).to eql(2000)
     end
 
     describe "the line item" do
