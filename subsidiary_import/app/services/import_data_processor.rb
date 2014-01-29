@@ -24,18 +24,27 @@ class ImportDataProcessor
 
     CSV.foreach import.data.current_path, headers: true, col_sep: "\t" do |row|
       purchaser_name = row["purchaser name"]
+      item_description = row["item description"]
       item_price_in_cents = extract_price_in_cents(row["item price"])
       purchase_count = row["purchase count"].to_i
+      merchant_address = row["merchant address"]
+      merchant_name = row["merchant name"]
 
+      # Find or create the merchant.
+      # Note: A merchant is uniquely identified by the combination of it's
+      # name and address.
+      merchant = Merchant.find_or_create_by! name: merchant_name,
+        address: merchant_address
+
+      # Find or create the purchaser.
       purchaser = Purchaser.find_or_create_by! name: purchaser_name
 
       import.line_items.build \
         purchaser: purchaser,
-        item_description: row["item description"],
+        item_description: item_description,
         item_price_in_cents: item_price_in_cents,
         purchase_count: purchase_count,
-        merchant_address: row["merchant address"],
-        merchant_name: row["merchant name"]
+        merchant: merchant
 
       if purchase_count > 0 && item_price_in_cents > 0
         revenue_counter += purchase_count * item_price_in_cents

@@ -11,18 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129054023) do
+ActiveRecord::Schema.define(version: 20140129055546) do
 
   create_table "import_line_items", force: true do |t|
     t.integer  "import_id"
     t.string   "item_description"
     t.integer  "item_price_in_cents"
     t.integer  "purchase_count"
-    t.string   "merchant_address"
-    t.string   "merchant_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "purchaser_id"
+    t.integer  "merchant_id"
   end
 
   add_index "import_line_items", ["import_id"], name: "index_import_line_items_on_import_id"
@@ -32,6 +31,13 @@ ActiveRecord::Schema.define(version: 20140129054023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "gross_revenue_in_cents"
+  end
+
+  create_table "merchants", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "purchasers", force: true do |t|

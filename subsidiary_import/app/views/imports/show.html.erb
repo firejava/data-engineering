@@ -12,8 +12,7 @@
         <th>Item Description</th>
         <th class="numeric">Item Price</th>
         <th class="numeric">Purchase Count</th>
-        <th>Merchant Address</th>
-        <th>Merchant Name</th>
+        <th>Merchant</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +22,7 @@
           <td><%= line_item.item_description %></td>
           <td class="numeric"><%= number_to_currency line_item.item_price %></td>
           <td class="numeric"><%= line_item.purchase_count %></td>
-          <td><%= line_item.merchant_address %></td>
-          <td><%= line_item.merchant_name %></td>
+          <td><%= link_to "#{line_item.merchant_name} - #{line_item.merchant_address}", line_item.merchant %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,8 +1,10 @@
 class ImportLineItem < ActiveRecord::Base
 
   belongs_to :import, inverse_of: :line_items
+  belongs_to :merchant, inverse_of: :import_line_items
   belongs_to :purchaser, inverse_of: :import_line_items
 
+  delegate :name, :address, to: :merchant, prefix: true
   delegate :name, to: :purchaser, prefix: true
 
   def item_price
