@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+table.data {
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+table.data th,
+table.data td {
+  padding: 2px 4px;
+  border: solid 1px black;
+}
+
+table.data th {
+  text-align: left;
+}
+
+table.data th.number,
+table.data td.numeric {
+  text-align: right;
+}
