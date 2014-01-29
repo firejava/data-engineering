@@ -1,22 +1,29 @@
 <h1>Listing imports</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Created At</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @imports.each do |import| %>
+<% if @imports.any? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= time_ago_in_words import.created_at %></td>
-        <td><%= link_to 'Show', import %></td>
+        <th>Gross Revenue</th>
+        <th>Created At</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @imports.each do |import| %>
+        <tr>
+          <td><%= number_to_currency import.gross_revenue %></td>
+          <td><%= time_ago_in_words import.created_at %></td>
+          <td><%= link_to 'Show', import %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <em>No imports found.</em>
+  <br>
+<% end %>
 
 <br>
 

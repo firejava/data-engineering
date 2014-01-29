@@ -1,22 +1,26 @@
 <h1>Merchants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @merchants.each do |merchant| %>
+<% if @merchants.any? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= merchant.name %></td>
-        <td><%= merchant.address %></td>
-        <td><%= link_to 'Show', merchant %></td>
+        <th>Name</th>
+        <th>Address</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @merchants.each do |merchant| %>
+        <tr>
+          <td><%= merchant.name %></td>
+          <td><%= merchant.address %></td>
+          <td><%= link_to 'Show', merchant %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <em>No merchants found. Try importing some data.</em>
+<% end %>
 
