@@ -1,5 +1,9 @@
 require "csv"
 
+# Process the data file belonging to an import.
+#
+# Note: The import will be saved (with save!) and any exceptions raised
+# are not intercepted.
 class ImportDataProcessor
 
   attr_reader :import
@@ -9,7 +13,7 @@ class ImportDataProcessor
   end
 
   # Processes the data file belonging to an import by extracting the line
-  # items.
+  # items,save the import, and return it.
   #
   # If the import already has processed line items, they will be destroyed
   # and recreated.
@@ -36,6 +40,7 @@ class ImportDataProcessor
     end
     import.gross_revenue_in_cents = revenue_counter
     import.save!
+    import
   end
 
   private

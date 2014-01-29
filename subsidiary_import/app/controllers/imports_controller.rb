@@ -15,8 +15,9 @@ class ImportsController < ApplicationController
   def create
     @import = Import.new import_params
     if @import.save
-      ImportDataProcessor.new(@import).call
-      @import.reload
+      # Process the data (extract line items, calculate gross revenue, etc.)
+      @import = ImportDataProcessor.new(@import).call
+
       redirect_to @import, notice: "Import was successfully created."
     else
       render action: 'new'
