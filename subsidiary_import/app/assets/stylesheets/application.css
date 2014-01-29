@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+body {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
 table.data {
   border: solid 1px black;
   border-collapse: collapse;
@@ -30,4 +34,20 @@ table.data th {
 table.data th.number,
 table.data td.numeric {
   text-align: right;
+}
+
+.header {
+  border-bottom: solid 2px black;
+}
+.header ul.nav {
+  list-style-type: none;
+  margin: 4px;
+  padding: 0;
+}
+.header ul.nav li {
+  display: inline;
+  margin-right: 10px;
+}
+.header ul.nav a {
+  text-decoration: none;
 }
