@@ -23,6 +23,9 @@ module SubsidiaryImport
     config.generators do |generate|
       generate.assets false
       generate.helper false
+
+      generate.test_framework :rspec
+      generate.view_specs false
     end
   end
 end
