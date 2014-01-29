@@ -4,13 +4,13 @@ This application is a submission for the Senior Software Engineer Challenge. It 
 
 ## Quick Start
 
-To install dependencies, [re]build the development/test databases, run specs, and start the server.
+To install dependencies, [re]build the development/test databases, run specs, and start the server
 
     bin/bootstrap
 
-_Note: The script will stop upon an non-zero exit code for any commands. This includes a failing spec suite._
+_Note: The script will stop upon an non-zero exit code of any commands. This includes a failing spec suite._
 
-If for some reason this fails for the wrong reasons, you can try manually running
+If for some reason this fails, you can try manually running
 
     bin/bundle install
     bin/rake db:setup
