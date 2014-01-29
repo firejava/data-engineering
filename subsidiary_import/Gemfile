@@ -17,3 +17,6 @@ gem 'jquery-rails'
 
 # Use RSpec as the testing framework.
 gem 'rspec-rails', '~> 3.0.0.beta'
+
+# Use CarrierWave for file uploads.
+gem 'carrierwave', '~> 0.9.0'

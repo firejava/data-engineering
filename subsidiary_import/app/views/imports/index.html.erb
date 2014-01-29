@@ -1,0 +1,23 @@
+<h1>Listing imports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @imports.each do |import| %>
+      <tr>
+        <td><%= time_ago_in_words import.created_at %></td>
+        <td><%= link_to 'Show', import %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Import', new_import_path %>
