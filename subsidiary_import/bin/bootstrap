@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+# Bootstrap the development of a fresh clone of this repo.
+
+# Install dependencies
+bin/bundle install
+
+# Setup development database
+bin/rake db:setup
+
+# Setup test database
+bin/rake db:test:prepare
+
+# Run specs
+bin/bundle exec rspec
+
+# Start the web server
+bin/rails server
